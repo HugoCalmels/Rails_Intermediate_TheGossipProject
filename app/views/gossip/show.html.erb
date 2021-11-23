@@ -1,0 +1,12 @@
+<center>
+<h1>Gossip</h1>
+
+<br />
+
+<h2><%= @gossip.title %></h2>
+<p> by : 
+  <%= link_to @gossip.user.first_name, user_path(@gossip.user.id), class: "btn btn-primary" %>
+</p>
+<p>created : <%= @gossip.created_at %></p>
+
+</center>

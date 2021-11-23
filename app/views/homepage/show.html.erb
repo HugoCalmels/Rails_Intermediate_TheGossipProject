@@ -1,2 +1,20 @@
-<h1>Homepage#show</h1>
-<p>Find me in app/views/homepage/show.html.erb</p>
+<center>
+<h1>Homepage</h1>
+</center>
+
+<div class="index">
+<% Gossip.all.each do |el| %>
+
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= el.title %>
+    </h5>
+    <p class="card-text"> by :
+      <%= el.user.first_name %>
+    </p>
+    <%= link_to "view", gossip_path(el.id),  class: "btn btn-primary" %>
+  </div>
+</div>
+<% end %>
+</div>
