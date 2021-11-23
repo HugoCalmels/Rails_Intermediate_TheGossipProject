@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'homepage#show'
+  get 'welcome/:user_entry', to: 'welcome#show'
+  get 'team/show'
+  get 'contact/show'
 end
