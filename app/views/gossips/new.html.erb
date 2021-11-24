@@ -1,0 +1,12 @@
+<center>
+<h1>NEW GOSSIP</h1>
+
+<%= form_for :gossip, url: gossips_path do |form| %>
+  <label for="title">Gossip title</label>
+  <%= form.text_field :title %>
+  <br />
+  <label for="content">Gossip content</label>
+  <%= form.text_area :content, size: "60x10" %>
+  <%= form.submit %>
+<% end %>
+</center>
