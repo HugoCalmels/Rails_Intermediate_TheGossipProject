@@ -1,6 +1,6 @@
 class GossipsController < ApplicationController
   def show
-    @gossip = Gossip.find(params[:gossip_id])
+    @gossip = Gossip.find(params[:id])
   end
 
   def new
