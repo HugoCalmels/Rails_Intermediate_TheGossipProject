@@ -8,6 +8,8 @@ Au menu :
 - bootstrap (cdn)
 - views
 - controllers
+- alerts
+- crud
 
 ## Pour remplir la base de données 
 
