@@ -9,4 +9,38 @@
 </p>
 <p>created : <%= @gossip.created_at %></p>
 
+<p> Tags : </p>
+<% @tags.each do |el|%>
+  <li>
+  <%= el %>
+  </li>
+  <% end %>
+
+
+
+
+<h1> COMMENTS SECTION </h1>
+<p> Il y a <%= @count %> commentaires, sur ce gossip</p>
+<%= form_tag(gossip_comments_path(@id), method: 'post') do %>
+  <%= text_area_tag(:content) %>
+  
+  <%= submit_tag("Submit") %>
+<% end %>
+
+
+<% @comments.each do |el| %>
+
+  <li>
+  <%= el.content %>
+  <%= el.user.first_name %>
+  <%= el.id %>
+  <%= link_to "edit", edit_gossip_comment_path(@gossip.id,el.id),  class: "btn btn-warning" %>
+  <%= link_to "destroy", gossip_comment_path(@gossip.id,el.id), method: "delete", data: { confirm: 'Are you sure?'},  class: "btn btn-danger" %>
+  </li>
+ 
+<% end %>
+
+
+
+
 </center>

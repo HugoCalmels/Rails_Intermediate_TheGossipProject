@@ -1,0 +1,7 @@
+<h1>COMMENT EDIT</h1>
+
+<%= form_tag(gossip_comment_path(@gossip.id, @comment.id), method: 'patch') do %>
+  <%= text_area_tag(:content) %>
+  
+  <%= submit_tag("Submit") %>
+<% end %>

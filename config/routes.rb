@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :gossips do 
     get 'gossips/:gossip_id', to: 'gossips#show'
+    resources :comments do
+    end
   end
   resources :users do 
     get 'users/:user_id', to: 'users#show'

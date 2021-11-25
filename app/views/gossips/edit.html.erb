@@ -1,16 +1,12 @@
 <center>
-<h1>NEW GOSSIP</h1>
+<h1>EDIT GOSSIP</h1>
 
-<%= form_for :gossip, url: gossips_path do |form| %>
+<%= form_for :gossip, url: gossip_path, :method => :PUT do |form| %>
   <label for="title">Gossip title</label>
   <%= form.text_field :title %>
   <br />
   <label for="content">Gossip content</label>
   <%= form.text_area :content, size: "60x10" %>
-  <br />
-  <label for="content">Select a tag</label>
-  <%= form.select(:tag, Tag.all.map {|el|[el.title, el.title]}) %>
-  <br />
   <%= form.submit %>
 <% end %>
 </center>
