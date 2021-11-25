@@ -30,7 +30,9 @@ end
     description: Faker::Lorem.paragraph_by_chars(number: 80, supplemental: false),
     email: Faker::Internet.email,
     age: rand(9..69),
-    city: City.all.sample
+    city: City.all.sample,
+    password: "123123",
+    password_confirmation: "123123"
   )
 end
 
