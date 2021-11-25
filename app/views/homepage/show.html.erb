@@ -16,9 +16,11 @@
       <%= el.user.first_name %>
     </p>
     <%= link_to "view", gossip_path(el.id),  class: "btn btn-primary" %>
+    <% if current_user && current_user.id == el.user.id  %>
     <%= link_to "edit", edit_gossip_path(el.id),  class: "btn btn-warning" %>
     <%= link_to "destroy", gossip_path(el.id), method: "delete", data: { confirm: 'Are you sure?'},  class: "btn btn-danger" %>
-  </div>
+    <% end %>
+    </div>
 </div>
 <% end %>
 </div>

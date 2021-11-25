@@ -1,5 +1,7 @@
 class GossipsController < ApplicationController
   before_action :current_gossip, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, only: [:create]
+  before_action :is_creator, only: [:edit, :update, :destroy]
 
   def show
     @tags = []
@@ -82,4 +84,21 @@ class GossipsController < ApplicationController
   def current_gossip
     @gossip = Gossip.find(params[:id])
   end
+
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
+  end
+
+  def is_creator
+    
+    unless current_user.id == @gossip.user.id 
+      flash[:danger] = "What are you trying to do ? .."
+      redirect_to root_path
+    end
+  end
+
 end
