@@ -1,0 +1,12 @@
+<h1>SESSION NEW</h1>
+
+<%= form_tag((sessions_path), method: 'POST') do %>
+
+  <label for="email">Email :</label>
+  <%= text_field_tag(:email) %>
+  <br />
+  <label for="password">Password :</label>
+  <%= text_field_tag(:password) %>
+  <br />
+  <%= submit_tag("Submit") %>
+<% end %>

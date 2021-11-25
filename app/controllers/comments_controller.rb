@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   @comment = Comment.new(
     content: params[:content],
     gossip: @gossip,
-    user: User.all.sample,
+    user: current_user,
     like: Like.all.sample
   ) 
 

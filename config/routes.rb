@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  resources :sessions
 
   resources :gossips do 
     get 'gossips/:gossip_id', to: 'gossips#show'

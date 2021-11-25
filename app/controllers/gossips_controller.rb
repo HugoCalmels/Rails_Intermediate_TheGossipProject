@@ -33,7 +33,7 @@ class GossipsController < ApplicationController
     g = Gossip.new(
       title: params[:gossip][:title],
       content: params[:gossip][:content],
-      user: User.first,
+      user: current_user,
       like: Like.first
     )
 
