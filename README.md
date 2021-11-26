@@ -25,6 +25,11 @@ La page d'acceuil du site est sur l'url suivante :
 http://localhost:3000/
 ```
 
+Disponible aussi directement en ligne à l'adresse ci-dessous :
+```html
+https://test-heroku-thegossipproject.herokuapp.com/
+```
+
 ## Gems utilisées : 
 
 - faker
