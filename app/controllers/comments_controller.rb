@@ -5,15 +5,14 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @gossip = Gossip.find(params[:gossip_id])
 
-  @gossip = Gossip.find(params[:gossip_id])
-
-  @comment = Comment.new(
-    content: params[:content],
-    gossip: @gossip,
-    user: current_user,
-    like: Like.all.sample
-  ) 
+    @comment = Comment.new(
+      content: params[:content],
+      gossip: @gossip,
+      user: current_user,
+      like: Like.all.sample
+    ) 
 
     if @comment.save
       redirect_to gossip_path(@gossip.id, @comment.id), success: "Comment created Successfully!"
@@ -31,10 +30,7 @@ class CommentsController < ApplicationController
 
     if @comment.update(content: params[:content])
       redirect_to gossip_path(@gossip.id, @comment.id), success: "Comment edited Successfully!"
-    else 
     end
-
-
   end
 
   def destroy

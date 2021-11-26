@@ -1,26 +1,34 @@
-<center>
-<h1>Homepage</h1>
-
-<%= link_to "create your own gossip motherducker !", new_gossip_path,  class: "btn btn-primary" %>
-</center>
-
-<div class="index">
-<% Gossip.all.each do |el| %>
-
-<div class="card w-75">
-  <div class="card-body">
-    <h5 class="card-title">
-      <%= el.title %>
-    </h5>
-    <p class="card-text"> by :
-      <%= el.user.first_name %>
-    </p>
-    <%= link_to "view", gossip_path(el.id),  class: "btn btn-primary" %>
-    <% if current_user && current_user.id == el.user.id  %>
-    <%= link_to "edit", edit_gossip_path(el.id),  class: "btn btn-warning" %>
-    <%= link_to "destroy", gossip_path(el.id), method: "delete", data: { confirm: 'Are you sure?'},  class: "btn btn-danger" %>
-    <% end %>
-    </div>
+<div class="container-welcome">
+  <h1>Homepage</h1>
+  <%= link_to "create your own gossip motherducker !", new_gossip_path,  class: "btn btn-primary" %>
 </div>
-<% end %>
+
+<div class="container-cards">
+  <div class="card-deck">
+    <% Gossip.all.each do |el| %>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= el.title %></h5>
+          <p class="card-text">By : <%= el.user.first_name %></p>
+          <%= link_to "view", gossip_path(el.id),  class: "btn btn-primary" %>
+          <% if current_user && current_user.id == el.user.id  %>
+            <%= link_to "edit", edit_gossip_path(el.id),  class: "btn btn-warning" %>
+            <%= link_to "destroy", gossip_path(el.id), method: "delete", data: { confirm: 'Are you sure?'},  class: "btn btn-danger" %>
+          <% end %>
+        </div>
+        <div class="card-footer">
+          <% if !logged_in? %>
+            <% if is_liked?(el) == 2 %>
+              <%= link_to "dislike", gossip_like_path(el.id, find_like_id(el)),  class: "btn btn-info", method: "DELETE" %>
+            <% else %>
+              <%= link_to "like", gossip_likes_path(el.id),  class: "btn btn-info", method: "POST" %>
+            <% end %>
+          <% end %>
+          <p> Likes count :   <%=  find_likes(el) %> </p>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
 </div>

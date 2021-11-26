@@ -36,11 +36,6 @@ end
   )
 end
 
-10.times do 
-  l = Like.create(
-    user: User.all.sample
-  )
-end
 
 10.times do
   t = Tag.create(
@@ -52,8 +47,13 @@ end
   g = Gossip.create(
     title: Faker::Mountain.name,
     content: Faker::Lorem.paragraph_by_chars(number: 128, supplemental: false),
+    user: User.all.sample
+  )
+end
+
+10.times do 
+  l = Like.create(
     user: User.all.sample,
-    like_id: Like.all.sample.id
   )
 end
 

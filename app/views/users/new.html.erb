@@ -1,22 +1,30 @@
+<div class="container-welcome">
 <h1>INSCRIPTION</h1>
+</div>
 
+<center>
 <%= form_tag((users_path), method: 'POST') do %>
+
   <label for="first_name">First Name :</label>
   <%= text_field_tag(:first_name) %>
   <br />
+
   <label for="last_name">Last Name :</label>
   <%= text_field_tag(:last_name) %>
   <br />
-  <br />
+
   <label for="description">Description :</label>
   <%= text_area_tag(:description) %>
   <br />
+
   <label for="email">Email :</label>
   <%= text_field_tag(:email) %>
   <br />
+
   <label for="age">Age :</label>
   <%= text_field_tag(:age) %>
   <br />
+
   <label for="city">City :</label>
   <%= select_tag :city, options_for_select(City.all.collect{ |u| [u.name, u.id] }) %>
   <br />
@@ -24,8 +32,11 @@
   <label for="password">Password :</label>
   <%= text_field_tag(:password) %>
   <br />
+
   <label for="password_confirmation">Password Confirmation :</label>
   <%= text_field_tag(:password_confirmation) %>
   <br />
+
   <%= submit_tag("Submit") %>
 <% end %>
+</center>

@@ -13,10 +13,8 @@ class GossipsController < ApplicationController
           end
         end
       end
- 
-  
-
     end
+
     @count = 0
     @comments = []
     Comment.all.map do |el|
@@ -35,8 +33,7 @@ class GossipsController < ApplicationController
     g = Gossip.new(
       title: params[:gossip][:title],
       content: params[:gossip][:content],
-      user: current_user,
-      like: Like.first
+      user: current_user
     )
 
     match = ''
@@ -85,7 +82,6 @@ class GossipsController < ApplicationController
     @gossip = Gossip.find(params[:id])
   end
 
-
   def authenticate_user
     unless current_user
       flash[:danger] = "Please log in."
@@ -94,7 +90,6 @@ class GossipsController < ApplicationController
   end
 
   def is_creator
-    
     unless current_user.id == @gossip.user.id 
       flash[:danger] = "What are you trying to do ? .."
       redirect_to root_path

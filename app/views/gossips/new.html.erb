@@ -1,6 +1,8 @@
-<center>
+<div class="welcome-container">
 <h1>NEW GOSSIP</h1>
+</div>
 
+<center>
 <%= form_for :gossip, url: gossips_path do |form| %>
   <label for="title">Gossip title</label>
   <%= form.text_field :title %>

@@ -1,11 +1,13 @@
-<center>
+<div class="container-welcome">
 <h1>Gossip</h1>
+</div>
 
-<br />
-
+<div class="container-gossip">
+<div class="gossip-infos">
 <h2><%= @gossip.title %></h2>
+<h6>"<%=@gossip.content%>"</h6>
 <p> by : 
-  <%= link_to @gossip.user.first_name, user_path(@gossip.user.id), class: "btn btn-primary" %>
+  <%= link_to @gossip.user.first_name, user_path(@gossip.user.id) %>
 </p>
 <p>created : <%= @gossip.created_at %></p>
 
@@ -15,11 +17,10 @@
   <%= el %>
   </li>
   <% end %>
+</div>
 
 
-
-
-<h1> COMMENTS SECTION </h1>
+<div class="gossip-comments">
 <p> Il y a <%= @count %> commentaires, sur ce gossip</p>
 <%= form_tag(gossip_comments_path(@id), method: 'post') do %>
   <%= text_area_tag(:content) %>
@@ -32,15 +33,14 @@
 
   <li>
   <%= el.content %>
-  <%= el.user.first_name %>
-  <%= el.id %>
-  <%= link_to "edit", edit_gossip_comment_path(@gossip.id,el.id),  class: "btn btn-warning" %>
-  <%= link_to "destroy", gossip_comment_path(@gossip.id,el.id), method: "delete", data: { confirm: 'Are you sure?'},  class: "btn btn-danger" %>
+  (<%= el.user.first_name %>)
+  <%= link_to "edit", edit_gossip_comment_path(@gossip.id,el.id),  class: "btn btn-sm btn-warning" %>
+  <%= link_to "destroy", gossip_comment_path(@gossip.id,el.id), method: "delete", data: { confirm: 'Are you sure?'},  class: "btn btn-sm btn-danger" %>
   </li>
  
 <% end %>
 
 
 
-
-</center>
+</div>
+</div>

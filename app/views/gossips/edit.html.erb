@@ -1,12 +1,18 @@
-<center>
+<div class="container-welcome">
 <h1>EDIT GOSSIP</h1>
+</div>
 
+<center>
 <%= form_for :gossip, url: gossip_path, :method => :PUT do |form| %>
+
   <label for="title">Gossip title</label>
   <%= form.text_field :title %>
   <br />
+
   <label for="content">Gossip content</label>
   <%= form.text_area :content, size: "60x10" %>
+  <br />
+
   <%= form.submit %>
 <% end %>
 </center>

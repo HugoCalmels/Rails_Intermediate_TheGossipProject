@@ -13,11 +13,23 @@
  *= require_tree .
  *= require_self
  */
-
+.main-container {
+  background: gray !important;
+  padding-left: 12vmax;
+  padding-right: 12vmax;
+  padding-top: 4vmax;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
 
 h1 {
-  color: red;
+  color: green;
 }
+
 
 .navbar_link {
   color: green;
@@ -26,8 +38,42 @@ h1 {
   font-size: 20px;
 }
 
-.index {
+
+.container-welcome {
   display: flex;
+  background-color: grey;
+  border: 2px solid green;
+  flex-direction: column;
+  padding-left:15vmax;
+  padding-right:15vmax;
+  align-items: center;
+  padding-bottom: 10px;
+  border-radius: 6px;
+}
+
+
+.card {
+  margin-top: 10px;
+  background-color: darkgray;
+}
+.container-gossip {
+  margin-top: 20px;
+  border: 2px solid green;
+  border-radius: 6px;
+}
+
+.gossip-infos{
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.gossip-comments{
+  display: flex;
+  border-top: 2px solid green;
+  margin-top: 10px;
   flex-direction: column;
   align-items: center;
 }

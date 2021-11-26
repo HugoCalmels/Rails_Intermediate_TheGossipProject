@@ -6,16 +6,13 @@ class UsersController < ApplicationController
   def new
   end
 
-
   def create
-
     City.all.map do |el|
       if el.id == params[:city].to_i
         @city = el
       end
     end
 
-  
     @user = User.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
@@ -27,14 +24,11 @@ class UsersController < ApplicationController
       city: @city
     ) 
 
-  
-      if @user.save
-        redirect_to root_path, success: "User created Successfully!"
-      else 
-        redirect_to new_user_path, danger: @user.errors.full_messages
-      end
-
-
+    if @user.save
+      redirect_to root_path, success: "User created Successfully!"
+    else 
+      redirect_to new_user_path, danger: @user.errors.full_messages
+    end
   end
 
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'gossips/:gossip_id', to: 'gossips#show'
     resources :comments do
     end
+    resources :likes
   end
   resources :users do 
     get 'users/:user_id', to: 'users#show'

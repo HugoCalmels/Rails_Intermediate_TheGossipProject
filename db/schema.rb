@@ -47,10 +47,8 @@ ActiveRecord::Schema.define(version: 2021_11_25_024450) do
     t.string "title"
     t.text "content"
     t.bigint "user_id"
-    t.bigint "like_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["like_id"], name: "index_gossips_on_like_id"
     t.index ["user_id"], name: "index_gossips_on_user_id"
   end
 
@@ -58,6 +56,8 @@ ActiveRecord::Schema.define(version: 2021_11_25_024450) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.bigint "gossip_id"
+    t.index ["gossip_id"], name: "index_likes_on_gossip_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
