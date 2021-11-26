@@ -22,10 +22,13 @@
 
 <div class="gossip-comments">
 <p> Il y a <%= @count %> commentaires, sur ce gossip</p>
+
+<% if !logged_in? %>
 <%= form_tag(gossip_comments_path(@id), method: 'post') do %>
   <%= text_area_tag(:content) %>
   
   <%= submit_tag("Submit") %>
+<% end %>
 <% end %>
 
 
@@ -34,8 +37,12 @@
   <li>
   <%= el.content %>
   (<%= el.user.first_name %>)
+  <% if !logged_in? %>
+  <% if current_user.id == el.user.id %>
   <%= link_to "edit", edit_gossip_comment_path(@gossip.id,el.id),  class: "btn btn-sm btn-warning" %>
   <%= link_to "destroy", gossip_comment_path(@gossip.id,el.id), method: "delete", data: { confirm: 'Are you sure?'},  class: "btn btn-sm btn-danger" %>
+  <% end %>
+  <% end %>
   </li>
  
 <% end %>
